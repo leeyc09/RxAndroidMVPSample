@@ -42,7 +42,7 @@ public class MainPresenter_Imp implements MainPresenter {
     @RxLogObservable
     Observable<String> TestHello(){
         return Observable.interval(1, TimeUnit.SECONDS)
-                .map(aLong -> "Hello" + aLong)
-                .compose(mMainView.ActivityLifecycleProvider().bindToLifecycle());
+            .map(aLong -> "Hello" + aLong)
+            .compose(mMainView.ActivityLifecycleProvider().bindToLifecycle());
     }
 }
