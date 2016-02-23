@@ -30,19 +30,19 @@ public class MainPresenter_Imp implements MainPresenter {
     @Override
     public void OnClickSampleBtn() {
         TestHello().observeOn(AndroidSchedulers.mainThread())
-        .subscribe(s -> {
-                Log.d(TAG, s);
-                mMainView.TextChange(s);
-            },
-            throwable -> throwable.printStackTrace(),
-            () -> Log.d(TAG, "onComplete")
-        );
+                .subscribe(s -> {
+                            Log.d(TAG, s);
+                            mMainView.TextChange(s);
+                        },
+                        throwable -> throwable.printStackTrace(),
+                        () -> Log.d(TAG, "onComplete")
+                );
     }
 
     @RxLogObservable
     Observable<String> TestHello(){
         return Observable.interval(1, TimeUnit.SECONDS)
-            .map(aLong -> "Hello" + aLong)
-            .compose(mMainView.ActivityLifecycleProvider().bindToLifecycle());
+                .map(aLong -> "Hello" + aLong)
+                .compose(mMainView.ActivityLifecycleProvider().bindToLifecycle());
     }
 }

@@ -17,11 +17,12 @@ import tiii.com.rxandroid.views.MainView;
 public class MainActivity extends BaseActivity implements MainView {
     public static final String TAG = MainActivity.class.getSimpleName();
 
+    private MainPresenter presenter;
+
     @Bind(R.id.textview)
     TextView simpleTextview;
     @Bind(R.id.button)
     Button button;
-    private MainPresenter presenter;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
